@@ -22,9 +22,11 @@ Digite uma das opções para continuar:
         pessoa = list()
         nome = str(input('Nome:'))
         idade = funcoes.validaInt('Idade: ')
+        tel = funcoes.validaInt('Telefone: ')
 
         pessoa.append(nome)
         pessoa.append(idade)
+        pessoa.append(tel)
 
         usuarios.append(pessoa)
 
@@ -39,6 +41,7 @@ Digite uma das opções para continuar:
 
             print(f'Nome: {p[0]}')
             print(f'Idade: {p[1]}')
+            print(f'Telefone: {p[2]}')
             funcoes.linha(30)
 
         print(f'Quantidade de Usuários: {len(usuarios)}')
@@ -50,4 +53,6 @@ Digite uma das opções para continuar:
         break
 
     else:
-        print('ERROR. Valor digitado inválido. Favor digite entre 1 e 3') 
+        print('ERROR. Valor digitado inválido. Favor digite entre 1 e 3')
+
+    
