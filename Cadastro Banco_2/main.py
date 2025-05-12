@@ -9,7 +9,21 @@ def error(msg):
     linha()
 
 
-def menu():
+def mensagemSaida():
+    linha()
+    print('Obrigado por Utilizar o programa!')
+    linha()
+
+
+def menu_opc3():
+    print('Digite uma das opções abaixo: ')
+    linha(40)
+    print('[1] Para ver Usuários cadastrados')
+    print('[2] Para ver Bancos cadastrados')
+    linha(40)
+
+
+def menu_principal():
     print()
     print('CADASTRO DE BANCO')
     linha()
@@ -21,8 +35,8 @@ def menu():
     print()
 
 
-def pegar_opc():
-    menu()
+def pegar_opc(opcs=[]):
+
     while True:
         try:
             opc = int(input('Digite sua opção: '))
@@ -39,8 +53,8 @@ def pegar_opc():
             if opc == '':
                 error('ERROR. O valor não pode ser inválido')
                 continue
-            elif opc not in [1, 2, 3, 4]:
-                error('ERROR. Digite somente um valor entre 1 a 4')
+            elif opc not in opcs:
+                error(f'ERROR. Digite somente um valor entre {opcs[0]} a {opcs[-1]}')
                 continue
             else:
                 return opc
@@ -101,17 +115,40 @@ def cadastro_cliente():
             return dados
 
 
+def usuarios(array=[]):
+    linha()
+    print(f'Total de usuários: {len(array)}')
+
+    for item in array:
+        linha()
+        print(f'Nome: {item[0]}')
+        print(f'Tipo de conta: {item[1]}')
+        linha()
+
 def main():
-    banco = ''
-    usuario = ''
+    bancos = list()
+    usuarios = list()
     opc = ''
+    while True:
+        menu()
+        opc = pegar_opc([1, 2, 3, 4])
+        if opc == 1:
+            banco = cadastro_banco()
+            bancos.append(banco)
+        
+        elif opc == 2:
+            usuario = cadastro_cliente()
+            usuarios.append(usuario)
 
-    opc = pegar_opc()
-    if opc == 1:
-        banco = cadastro_banco()
-    
-    elif opc == 2:
-        usuario = cadastro_cliente()
+        elif opc == 3:
+            menu_opc3()
+            opc2 = pegar_opc([1, 2])
 
-
+            if opc2 == 1:
+                usuarios(usuarios)
+                
+            else:
+                break
+            
+    mensageSaida()
 main()
