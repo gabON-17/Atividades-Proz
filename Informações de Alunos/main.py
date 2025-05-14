@@ -7,7 +7,7 @@ def cadastrarAluno():
     linha()
     print('PREENCHA AS INFORMAÇÕES ABAIXO.')
     linha()
-    dados = {}
+    dados = []
     while True:
         try:
             name = str(input('Nome: '))
@@ -30,13 +30,12 @@ def cadastrarAluno():
         else:
 
             media = (nota1 + nota2) / 2
-            dados = {
-                'nome': name,
-                'avaliacao_1': nota1,
-                'avaliacao_2': nota2,
-                'media': media
 
-            }
+            if media < 6:
+                status = False
+            else:
+                status = True
+            dados.append(name, nota1, nota2, media, status)
 
             return dados
 
@@ -48,12 +47,18 @@ def mostrarDados(array = 0):
             linha()
             print(f'{cont}° Aluno: ')
 
-        print(f'''
-Nome: {aluno['nome']}
-Avaliação 1: {aluno['avaliacao_1']}
-Avaliação 2: {aluno['avaliacao_2']}
-Média: {aluno['media']:.2f}
-        ''')
+            print(f'''
+ Nome: {aluno[0]}
+ Avaliação 1: {aluno[1]}
+ Avaliação 2: {aluno[2]}
+ Média: {aluno[3]:.2f}
+            ''')
+
+            if not aluno[4]:
+                print('Situação: Reprovado')
+
+            else:
+                print('Situação: Aprovado')
 
         cont += 1
 
