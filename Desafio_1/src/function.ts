@@ -5,9 +5,11 @@ export const getData = (): Array<number> => {
   let data: Array<number> = [];
   for (let i = 1; i > 0; ) {
     try {
+      console.clear();
       console.log("-----------------------");
       let hours: number = Number(request("Horas trabalhadas: "));
 
+      console.clear();
       while (isNaN(hours) || hours > 24 || hours <= 0) {
         if (isNaN(hours)) {
           console.log("-----------------------------");
@@ -23,12 +25,14 @@ export const getData = (): Array<number> => {
             "ERROR. O valor não pode ser 0 ou negativo, tente novamente"
           );
         }
+        console.log("--------------------");
         hours = Number(request("Horas trabalhadas: "));
       }
-
+      console.clear();
       console.log("-----------------------");
       let valueHour: number = Number(request("Valor da hora: R$"));
 
+      console.clear();
       while (isNaN(valueHour) || valueHour <= 0) {
         if (isNaN(valueHour)) {
           console.log("-----------------------------");
@@ -41,12 +45,15 @@ export const getData = (): Array<number> => {
             "ERROR. O valor não pode ser 0 ou negativo, tente novamente"
           );
         }
+        console.log("--------------------");
         valueHour = Number(request("Valor da hora: R$"));
       }
 
+      console.clear();
       console.log("-----------------------");
       let days: number = Number(request("Dias trabalhados: "));
 
+      console.clear();
       while (isNaN(days) || days > 31 || days <= 0) {
         if (isNaN(days)) {
           console.log("-----------------------------");
@@ -62,6 +69,8 @@ export const getData = (): Array<number> => {
             "ERROR. O valor não pode ser 0 ou negativo, tente novamente"
           );
         }
+
+        console.log("----------------");
         days = Number(request("Dias trabalhados: "));
       }
 
@@ -84,6 +93,7 @@ export const payment = (
 };
 
 export const help = (): void => {
+  console.clear()
   console.log("--------------------------------------");
   console.log("\n Esse cálculo foi feito da seguinte forma: ");
   console.log(
@@ -111,11 +121,10 @@ export const getOption = (
         "ERROR. Número não pode ser menor ou igual a 0. Tente novamente"
       );
     } else {
-        break
+      break;
     }
-    console.log(numbers[-1])
+    console.log(numbers[-1]);
     option = Number(request(message));
   }
-
   return option;
 };
