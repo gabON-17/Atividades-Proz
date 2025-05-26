@@ -34,9 +34,3 @@ export function getOption(options: Array<number>, fn: (user?: UserBank) => void,
 }
 
 
-export function moneyQuant(num: string) {
-  const number: Array<string> = []
-  for (let n of num) {
-    
-  }
-}
