@@ -1,3 +1,5 @@
+import { clear } from "../view/view.menu";
+
 export class UserBank {
     name: string;
     cpf: number;
@@ -19,22 +21,23 @@ export class UserBank {
         } else {
             const newValue: number = this.value! - amount; 
             this.value = newValue;
-            this.stract?.unshift(`Saque de R$${amount} foi feito`) 
+            this.stract!.unshift(`Saque de R$${amount} foi feito`) 
             console.log(`R$${amount} sacado com sucesso`)
         }
     }
 
     deposit(amount: number): void {
         this.value! += amount
-        this.stract?.unshift(`Depósito feito de R$${amount}`)
+        this.stract!.unshift(`Depósito feito de R$${amount}`)
         console.log(`R$${amount} depositado com sucesso`)
     }
 
-    viewStratum(): string {
-        return this.stract![0]
+    async viewStratum(): Promise<void> {
+        clear()
+        console.log(this.stract)
     }
 
-    balance(): void {
-        console.log(`R$${this.value}`)
+    balance(): number {
+        return this.value!
     }
 }

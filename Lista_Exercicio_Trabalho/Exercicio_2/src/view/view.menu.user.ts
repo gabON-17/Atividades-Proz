@@ -1,19 +1,7 @@
 import { UserBank } from "../class/entity";
-import { request } from "../utils/functions";
+import { request } from "../utils/validation";
 import { clear, title } from "./view.menu";
 
-export const registedUsers = (list: Array<UserBank>): void => {
-    clear()
-    let names: string = ''
-    console.log('--------------------------------------')
-    console.log(`Quantidade de Usuários: ${list.length}`)
-    console.log('--------------------------------------')
-    console.log('Usuários:')
-    for(const item of list) {
-        names += item + " "
-    }
-    console.log(names)
-}
 
 export const menuLogin = (): [number, string] => {
     console.log('-------------------------------------')
@@ -23,11 +11,10 @@ export const menuLogin = (): [number, string] => {
 }
 
 
-export const menuUser = (user: UserBank) => {
-    clear()
+export const menuUser = (user: UserBank): any => {
     title(`BEM VINDO A SUA CONTA ${user.name}`)
 
-    console.log(`SALDO: ${user.balance()}`)
+    console.log(`R$${user.balance()}`)
 
     console.log('[1] Sacar')
     console.log('[2] Depositar')
