@@ -11,10 +11,10 @@ export const menuLogin = (): [number, string] => {
 }
 
 
-export const menuUser = (user: UserBank): any => {
-    title(`BEM VINDO A SUA CONTA ${user.name}`)
+export const menuUser = (user: UserBank | undefined): void => {
+    title(`BEM VINDO A SUA CONTA ${user!.name}`)
 
-    console.log(`R$${user.balance()}`)
+    console.log(`R$${user!.balance()}`)
 
     console.log('[1] Sacar')
     console.log('[2] Depositar')

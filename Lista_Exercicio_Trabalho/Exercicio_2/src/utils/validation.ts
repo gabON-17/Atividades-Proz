@@ -1,10 +1,16 @@
 import readLine from "prompt-sync";
+import { UserBank } from "../class/entity";
 export const request = readLine();
 
 
-export function getOption(options: Array<number>): number {
+export function getOption(options: Array<number>, fn: (user?: UserBank) => void, Client: UserBank = new UserBank('none', 0, '0')): number {
   for (let i = 0; i == 0;) {
     try {
+      if (Client.name == 'none') {
+        fn()
+      } else {
+        fn(Client)
+      }
       const option: number = Number(request("Digite sua opção: "));
 
       if (options.includes(option)) {
@@ -25,4 +31,12 @@ export function getOption(options: Array<number>): number {
     }
   }
   return -1;
+}
+
+
+export function moneyQuant(num: string) {
+  const number: Array<string> = []
+  for (let n of num) {
+    
+  }
 }
