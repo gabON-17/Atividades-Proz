@@ -1,4 +1,4 @@
-# Requisitos para rodar o código
+# Requisitos e Instruções para Rodar o Código
 ___- SIGA ESSE PROCESSO EM CADA EXERCÍCIO INDIVIDUALMENTE___
 - É necessário já ter o ___NODE.JS v20.19.0___ e o ___NPM v10.8.2___ ou instalador de preferência
 ### Bibliotecas necesárias
