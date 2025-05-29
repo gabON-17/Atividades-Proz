@@ -27,5 +27,5 @@ npm i typescript
 Isso gerará uma pasta _/dist_ com os arquivos de typescript convertidos em javascript
 
 
-- Agora é só rodar com o node:
+- Agora é só rodar com o seguinte comando no terminal:
   `node dist/main.js`
