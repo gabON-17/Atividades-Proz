@@ -12,7 +12,7 @@ header {
     padding: 20px;
 }
 
-.itens {
+.itens-div {
     display: flex;
     gap: 70px;
     justify-content: left;
